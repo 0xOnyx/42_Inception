@@ -1,11 +1,18 @@
 FROM debian:buster
 
-RUN sudo apt-get update \
-    sudo apg-get install mariadb-server \
+RUN apt-get update \
+    && apt-get install mariadb-server \
 
-COPY ./conf/config.sh /tmp/config.sh
-RUN chmod +x /tmp/config.sh
+EXPOSE 3306
 
-CMD ["sh", "/tmp/config.sh"]
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
+COPY ./tools/init_db.sql /tmp/
+
+RUN systemctl start mariadb.service &&
+
+
+
+CMD ["bash"]
+ENTRYPOINT ["/tmp/config.sh"]
 
 
