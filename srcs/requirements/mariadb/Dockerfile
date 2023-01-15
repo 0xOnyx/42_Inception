@@ -2,19 +2,14 @@ FROM debian:buster
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install mariadb-server mariabd-client \
-
+    && apt-get install mariadb-server -y
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
-COPY ./tools/init_db.sql /tmp/
+COPY tools/configure.sh /tmp/
 
-RUN systemctl start mysql \
-    && mysql < /tmp/init_db.sql \
-    && rm -rf /tmp/init_db.sql \
+RUN service mysql start \
+    && bash /tmp/configure.sh \
 
 EXPOSE 3306
 
-CMD ["bash"]
-ENTRYPOINT ["systemctl", "start", "mysql"]
-
-
+ENTRYPOINT ["service", "mysql", "start"]
