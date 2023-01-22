@@ -1,2 +1,2 @@
 # 42_Inception
-Inception 
+Inception simple docker project
