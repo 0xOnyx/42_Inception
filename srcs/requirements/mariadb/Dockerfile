@@ -1,15 +1,14 @@
 FROM debian:buster
 
 RUN apt-get update \
-    && apt-get upgrade -y \
     && apt-get install mariadb-server -y
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY tools/configure.sh /tmp/
 
 RUN service mysql start \
-    && bash /tmp/configure.sh \
+    && bash /tmp/configure.sh
 
 EXPOSE 3306
 
-ENTRYPOINT ["service", "mysql", "start"]
+ENTRYPOINT ["mysqld"]
