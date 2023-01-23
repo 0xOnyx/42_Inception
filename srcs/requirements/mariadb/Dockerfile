@@ -11,4 +11,4 @@ RUN service mysql start \
 
 EXPOSE 3306
 
-ENTRYPOINT ["mysqld"]
+CMD ["mysqld"]
