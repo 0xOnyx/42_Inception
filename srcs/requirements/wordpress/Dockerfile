@@ -10,9 +10,9 @@ EXPOSE 9000
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d
 COPY ./tools/ /var/www/
 
-RUN chmod +x /var/www/worpress_start.sh
+RUN chmod +x /var/www/wordpress_start.sh
 
-RUN /var/www/worpress_start.sh
+RUN /var/www/wordpress_start.sh
 
 ENTRYPOINT ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
 
