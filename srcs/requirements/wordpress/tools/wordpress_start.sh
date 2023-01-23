@@ -5,7 +5,7 @@ chown -R 755 /var/www/*
 mkdir -p /var/www/html
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
-mv wp-cli.phar /usr/loca/bin/wp
+mv wp-cli.phar /usr/local/bin/wp
 cd /var/www/html
 wp core download --allow-root
 wp config create --dbname=$WP_DATABASE_NAME --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=$MYSQL_HOST --dbcharset="utf8" --dbcollate="utf8_general_ci" --allow-root
