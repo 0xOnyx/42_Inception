@@ -9,6 +9,7 @@ EXPOSE 9000
 
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d
 COPY ./tools/ /var/www/
+RUN echo $MYSQL_HOST
 
 RUN chmod +x /var/www/wordpress_start.sh
 
