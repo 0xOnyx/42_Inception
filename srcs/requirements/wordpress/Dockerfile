@@ -14,6 +14,7 @@ RUN chmod +x /var/www/wordpress_start.sh
 
 RUN /var/www/wordpress_start.sh
 
+
 ENTRYPOINT ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
 
 
