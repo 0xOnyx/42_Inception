@@ -10,6 +10,6 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
 FLUSH PRIVILEGES;
 EOF
 
-mysql < /tmp/init_db.sql
+mysql -u$MYSQL_USER -p$MYSQL_PASSWORD < /tmp/init_db.sql
 rm -rf /tmp/init_db.sql
 rm -rf /tmp/configure.sh
