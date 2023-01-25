@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update
-RUN apt-get install php php-mysqli php-fpm wget sendmail mariadb-client -y
+RUN apt-get install php php-mysqli php-fpm wget mariadb-client -y
 
 EXPOSE 9000
 
