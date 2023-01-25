@@ -12,3 +12,4 @@ EOF
 
 mysql < /tmp/init_db.sql
 rm -rf /tmp/init_db.sql
+rm -rf /tmp/configure.sh
