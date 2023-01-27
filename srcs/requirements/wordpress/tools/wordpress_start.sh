@@ -1,8 +1,11 @@
 #!/bin/bash
 
-while ! mysql -h$MYSQL_HOST -u$MYSQL_USER -p$MYSQL_PASSWORD $WP_DATABASE_NAME &>/dev/null; do
+while ! mysql -h $MYSQL_HOST -u $MYSQL_USER -p$MYSQL_PASSWORD $WP_DATABASE_NAME &>/dev/null; do
   sleep 3
 done
+
+mkdir -p /run/php/;
+touch /run/php/php7.3-fpm.pid;
 
 if [ ! -f /var/www/html/wp-config.php ]; then
   chown -R www-data:www-data /var/www/*

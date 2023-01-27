@@ -24,14 +24,20 @@ volumes:
 services:
   mariadb:
     container_name: mariadb
-    build: ./requirements/mariadb
+    build:
+      context: ./requirements/mariadb
+      args :
+        - WP_DATABASE_NAME=${WP_DATABASE_NAME}
+        - MYSQL_USER=${MYSQL_USER}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     env_file:
       - .env
     volumes:
       - db_data:/var/lib/mysql
     networks:
       - app-network
-    restart: no
+    restart: always
 
   wordpress:
     container_name: wordpress

@@ -1,5 +1,10 @@
 FROM debian:buster
 
+ARG WP_DATABASE_NAME
+ARG MYSQL_USER
+ARG MYSQL_PASSWORD
+ARG MYSQL_ROOT_PASSWORD
+
 RUN apt-get update \
     && apt-get install mariadb-server -y
 
