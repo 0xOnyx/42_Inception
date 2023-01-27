@@ -3,8 +3,8 @@ DOCKERFILE = ./srcs/docker-compose.yml
 all: up
 
 up:
-	make -p /home/jerdos-s/data/mariadb/
-	make -p /home/jerdos-s/data/wordpress/
+	mkdir -p /home/jerdos-s/data/mariadb/
+	mkdir -p /home/jerdos-s/data/wordpress/
 	echo "127.0.0.1 jerdos-s.42.fr" >> /etc/hosts
 	docker compose -f $(DOCKERFILE) up
 
